@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var currentView = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if currentView == 0 {
+            SettingView()
+        } else if currentView == 1 {
+            QuestionView()
+        } else {
+            ResultView()
         }
-        .padding()
     }
 }
 
