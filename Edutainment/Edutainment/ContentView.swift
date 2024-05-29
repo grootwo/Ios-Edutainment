@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var numberOfQuestion = 1
     var body: some View {
         if currentView == 0 {
-            SettingView(numberOfTable: numberOfTable, numberOfQuestion: $numberOfQuestion)
+            SettingView(numberOfTable: $numberOfTable, numberOfQuestion: $numberOfQuestion)
         } else if currentView == 1 {
             QuestionView()
         } else {
