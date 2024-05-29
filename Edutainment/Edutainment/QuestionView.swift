@@ -21,14 +21,17 @@ struct QuestionView: View {
         return formatter
     }()
     var body: some View {
-        VStack(alignment: .center) {
-            Text("\(numberOfTable) X \(numberToMultiply) = ?")
-                .font(.title)
-            TextField("answer", value: $textInput, formatter: QuestionView.numberFormatter)
-                .font(.title)
-                .background()
-                .frame(maxWidth: 100)
+        VStack(alignment: .center, spacing: 50) {
+            Text("\(numberOfTable) X \(numberToMultiply)")
+            HStack {
+                Text("=")
+                TextField("answer", value: $textInput, formatter: QuestionView.numberFormatter)
+                    .background()
+                    .frame(maxWidth: 50)
+                    .keyboardType(.numberPad)
+            }
         }
+        .font(.title)
     }
 }
 
