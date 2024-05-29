@@ -13,8 +13,8 @@ struct QuestionView: View {
     @Binding var numberOfTable: Int
     @State var numberToMultiply = Int.random(in: 1...9)
     @State var textInput = 0
-    @State var currentQuestion = 1
-    @State var score = 0  
+    @State var currentQuestion = 1.0
+    @State var score = 0
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -22,6 +22,10 @@ struct QuestionView: View {
     }()
     var body: some View {
         VStack(alignment: .center, spacing: 50) {
+            ProgressView("\(Int(currentQuestion)) / \(numberOfQuestion)", value: currentQuestion, total: Double(numberOfQuestion))
+                .font(.title3)
+                .tint(.yellow)
+            Spacer()
             Text("\(numberOfTable) X \(numberToMultiply)")
             HStack {
                 Text("=")
@@ -30,8 +34,17 @@ struct QuestionView: View {
                     .frame(maxWidth: 50)
                     .keyboardType(.numberPad)
             }
+            Spacer()
+            Button(action: {
+                
+            }, label: {
+                Label("Pop to next", systemImage: "fireworks")
+            })
+            .tint(.yellow)
+            .buttonStyle(.bordered)
         }
         .font(.title)
+        .padding()
     }
 }
 
