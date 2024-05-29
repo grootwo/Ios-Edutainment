@@ -15,7 +15,7 @@ struct ContentView: View {
         if currentView == 0 {
             SettingView(currentView: $currentView, numberOfTable: $numberOfTable, numberOfQuestion: $numberOfQuestion)
         } else if currentView == 1 {
-            QuestionView()
+            QuestionView(currentView: $currentView, numberOfQuestions: $numberOfQuestion)
         } else {
             ResultView()
         }
