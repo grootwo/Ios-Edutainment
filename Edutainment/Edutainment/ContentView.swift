@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var currentView = 0
     @State private var numberOfTable = 1
-    @State var numberOfQuestion = 1
+    @State var numberOfQuestion = 10
     var body: some View {
         if currentView == 0 {
             SettingView(numberOfTable: $numberOfTable, numberOfQuestion: $numberOfQuestion)
