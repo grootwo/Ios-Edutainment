@@ -9,7 +9,9 @@ import SwiftUI
 
 struct QuestionView: View {
     @Binding var currentView: Int
-    @Binding var numberOfQuestions: Int
+    @Binding var numberOfQuestion: Int
+    @Binding var numberOfTable: Int
+    @State var numberToMultiply = Int.random(in: 1...9)
     @State var textInput = 0
     @State var currentQuestion = 1
     @State var score = 0  
@@ -20,7 +22,7 @@ struct QuestionView: View {
     }()
     var body: some View {
         VStack(alignment: .center) {
-            Text("3 X 3 = ?")
+            Text("\(numberOfTable) X \(numberToMultiply) = ?")
                 .font(.title)
             TextField("answer", value: $textInput, formatter: QuestionView.numberFormatter)
                 .font(.title)
@@ -31,5 +33,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    QuestionView(currentView: .constant(1), numberOfQuestions: .constant(10))
+    QuestionView(currentView: .constant(1), numberOfQuestion: .constant(10), numberOfTable: .constant(9))
 }
