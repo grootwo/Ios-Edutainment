@@ -54,7 +54,7 @@ struct QuestionView: View {
     }
     func guessAnswer(answer: Int) {
         if answer == numberOfTable * numberToMultiply {
-            score += 10
+            score += 1
         }
         numberToMultiply = Int.random(in: 1...9)
         textInput = 0
