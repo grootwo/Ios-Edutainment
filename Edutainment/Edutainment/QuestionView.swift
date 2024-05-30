@@ -42,7 +42,7 @@ struct QuestionView: View {
             }
             Spacer()
             Button(action: {
-                
+                guessAnswer(answer: textInput)
             }, label: {
                 Label("Pop to next", systemImage: "fireworks")
             })
@@ -51,6 +51,18 @@ struct QuestionView: View {
         }
         .font(.title)
         .padding()
+    }
+    func guessAnswer(answer: Int) {
+        if answer == numberOfTable * numberToMultiply {
+            score += 10
+        }
+        numberToMultiply = Int.random(in: 1...9)
+        textInput = 0
+        if currentQuestion == Double(numberOfQuestion) {
+            currentView = 3
+        } else {
+            currentQuestion += 1
+        }
     }
 }
 
