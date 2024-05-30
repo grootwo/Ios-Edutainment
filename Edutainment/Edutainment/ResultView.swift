@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ResultView: View {
+    @Binding var currentView: Int
+    @Binding var score: Int
     var body: some View {
         VStack {
             Spacer()
@@ -32,5 +34,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView()
+    ResultView(currentView: .constant(2), score: .constant(4))
 }

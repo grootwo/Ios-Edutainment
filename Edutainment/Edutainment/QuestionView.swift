@@ -11,10 +11,10 @@ struct QuestionView: View {
     @Binding var currentView: Int
     @Binding var numberOfQuestion: Int
     @Binding var numberOfTable: Int
+    @Binding var score: Int
     @State var numberToMultiply = Int.random(in: 1...9)
     @State var textInput = 0
     @State var currentQuestion = 1.0
-    @State var score = 0
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -67,5 +67,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    QuestionView(currentView: .constant(1), numberOfQuestion: .constant(10), numberOfTable: .constant(9))
+    QuestionView(currentView: .constant(1), numberOfQuestion: .constant(10), numberOfTable: .constant(9), score: .constant(2))
 }
