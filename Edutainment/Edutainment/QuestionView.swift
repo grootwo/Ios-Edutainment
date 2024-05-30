@@ -22,7 +22,13 @@ struct QuestionView: View {
     }()
     var body: some View {
         VStack(alignment: .center, spacing: 50) {
-            ProgressView("\(Int(currentQuestion)) / \(numberOfQuestion)", value: currentQuestion, total: Double(numberOfQuestion))
+            ProgressView(value: currentQuestion, total: Double(numberOfQuestion)) {
+                HStack {
+                    Text("\(Int(currentQuestion)) / \(numberOfQuestion)")
+                    Spacer()
+                    Text("Score: \(score)")
+                }
+            }
                 .font(.title3)
                 .tint(.yellow)
             Spacer()
