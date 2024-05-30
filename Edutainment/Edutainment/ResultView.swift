@@ -17,11 +17,13 @@ struct ResultView: View {
                 .resizable()
                 .frame(width: 100, height: 130)
                 .foregroundColor(.yellow)
-            Text("Yay! you made 3 popcorns!")
+            Text("Yay! you made \(score) popcorns!")
                 .font(.title2)
             Spacer()
             Text("Do you want to pop again?")
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                startNewGame()
+            }, label: {
                 Label("Go to pop!", systemImage: "frying.pan.fill")
                     .font(.title)
             })
@@ -30,6 +32,10 @@ struct ResultView: View {
             
         }
         .padding()
+    }
+    func startNewGame() {
+        score = 0
+        currentView = 0
     }
 }
 
